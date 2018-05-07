@@ -8,8 +8,8 @@
                                            description: truncate(article.description, length: 100),
                                            path: article_path(article),
                                            author: article.author,
-                                           created_at: time_ago_in_words(article.created_at),
-                                           farts_at: time_ago_in_words(article.updated_at)
+                                           created_at: article.created_at,
+                                           updated_at: article.updated_at
                                             }) %>
         
         <div class="article-body">

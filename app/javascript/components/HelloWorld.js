@@ -14,3 +14,4 @@ HelloWorld.propTypes = {
   greeting: PropTypes.string
 };
 export default HelloWorld
+//<%= react_component("HelloWorld", { greeting: "Hello" }) %>

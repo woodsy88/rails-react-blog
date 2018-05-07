@@ -5,7 +5,16 @@ class Article extends React.Component {
     return (
       <div>
         <div className="article-title"><a href={this.props.path}>{this.props.title}</a></div>
-        <div className="article-body">{this.props.description}</div>
+        <div className="article-body">
+          {this.props.description}
+          <div className="article-meta-details">
+            <small>
+              Created by {this.props.author}, 
+              {this.props.created_at} ago,
+              last updated {this.props.farts_at}
+            </small>  
+          </div> 
+        </div>       
       </div>
     );
   }
@@ -14,6 +23,9 @@ class Article extends React.Component {
 Article.propTypes = {
   title: PropTypes.string,
   path: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  author: PropTypes.string,
+  created_at: PropTypes.string,
+  updated_at: PropTypes.string
 };
 export default Article

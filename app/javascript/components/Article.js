@@ -14,13 +14,29 @@ class Article extends React.Component {
             <small>
               Created by {this.props.author + " "}
 
-              <Timestamp time={this.props.created_at} precision={2} />,
-              <div>last updated <Timestamp time={this.props.updated_at} precision={2} /></div>
+              <Timestamp time={this.props.created_at} precision={4} />,
+              <div>last updated <Timestamp time={this.props.updated_at} precision={4} /></div>
             </small>  
           </div> 
         </div>       
       </div>
     );
+  }
+
+  componentDidMount(){
+    // assigning the Article component to self
+    var self = this;
+      // forceUpdate will force the state of the component to update during the mounting
+    setInterval(function(){self.forceUpdate()}, 1000);
+  }
+
+  // removes the interval timer continuously counting when user leaves page
+  componentWillUnmount(){
+    // if our component has a timer set on it
+    if (this._timer){
+      clearInterval(this._timer);
+      this._timer = null;
+    }
   }
 }
 
